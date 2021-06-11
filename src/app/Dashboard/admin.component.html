@@ -1,0 +1,30 @@
+<div class="row">
+    <div id="top-bar" class="top-bar sticky-top bg-white d-xl-none k-shadow">
+        <span id="nav-toggle" class="nav-toggle d-xl-none"
+            (click)="toggleNav()">
+            <span class="k-icon k-i-hamburger"></span>
+        </span>
+    </div>
+    <div id="nav"
+        class="sticky-top py-3 py-sm-5 k-vbox shadow col-xl-2 d-xl-flex hide"
+        [@toggleNav]="navState"
+        *ngIf="showNav()">
+        <p class="kendo-grid-column">
+             <img src="/assets/CED_PMV_FC_v3.jpg" [ngStyle]="{'max-width': '80%'}" class="mx-auto d-block"  >
+             
+             
+                 <button kendoButton [toggleable]="true" id="profil" [routerLink]=" ['./profil'] " class="nav-link" routerLinkActive="active">User Profile</button>
+                 <button kendoButton [toggleable]="true" id="list-of-users" [routerLink]=" ['./list-of-users'] " class="nav-link" routerLinkActive="active"> List of Users</button>
+                 <button kendoButton [toggleable]="true" id="apis" [routerLink]=" ['./apis'] " class="nav-link" routerLinkActive="active">List of APIs</button>
+                 <button kendoButton [toggleable]="true" id="bm" [routerLink]=" ['./bm'] " class="nav-link" routerLinkActive="active">Mails' Box</button>
+                 
+                
+       </p>
+          
+    </div>
+    
+    <main class="content-wrapper col">
+        <alert></alert>
+        <router-outlet></router-outlet>
+    </main>
+</div>

@@ -1,0 +1,46 @@
+<div class="Register-wrap">
+  <div class="row">
+    <div class="col-md-8">
+        <button type="button" class="btn  btn-outline-info btn-round" [routerLink]=" ['/user/registration'] "
+        routerLinkActive="active" style="vertical-align:middle">Register</button>
+        
+    </div>
+</div>
+  <form class="k-form" [formGroup]="LoginForm">
+      <fieldset class="k-form-fieldset">
+          <legend class="k-form-legend">LOG IN</legend>
+          <kendo-formfield>
+            <kendo-label [for]="email" text="User Email"></kendo-label>
+            <input formControlName="UserEmail" kendoTextBox #email required/>
+            <kendo-formhint>Your active email</kendo-formhint>
+            <kendo-formerror>Error: Not valid email format</kendo-formerror>
+         </kendo-formfield>
+        
+          <kendo-formfield>
+            <kendo-label [for]="passwordUser" text="Password"></kendo-label>
+            <input formControlName="PasswordUser" kendoTextBox type='password' #passwordUser required/>
+            <kendo-formerror>Error: Password is required</kendo-formerror>
+         </kendo-formfield>
+         
+         <div class="col-xs-12 col-sm-12 col-md-12">
+          <button class="submit-btn btn btn-success" (click)="submitForm()"> Login </button>
+        </div>   
+      </fieldset>
+  </form>
+</div>
+
+
+ 
+
+                       
+              
+          
+
+         
+          
+          
+        
+       
+
+
+

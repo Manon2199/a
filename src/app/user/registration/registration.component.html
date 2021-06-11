@@ -1,0 +1,60 @@
+<div class="Register-wrap">
+    <div class="row">
+        <div class="col-md-8">
+           <button type="button" class="btn btn-outline-info btn-round " [routerLink]=" ['/user/login'] "routerLinkActive="active">Login</button>
+        </div>
+    </div>
+    <form class="k-form" [formGroup]="service.registerForm">
+        <fieldset class="k-form-fieldset">
+            <legend class="k-form-legend">User Details</legend>
+            <kendo-formfield>
+                <kendo-label [for]="userName" text="UserName"></kendo-label>
+                <input formControlName="UserName" kendoTextBox #userName required/>
+                <kendo-formhint>Your name</kendo-formhint>
+                <kendo-formerror>Error: Name is required</kendo-formerror>
+            </kendo-formfield>
+            <div formGroupName="Passwords">
+                <div class="form-group required">
+                    <kendo-formfield>
+                          <kendo-label [for]="passwordUser" text="Password"></kendo-label>
+                           <input formControlName="PasswordUser" kendoTextBox type='password' #passwordUser required/>
+                           <kendo-formerror>Error: Password is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="form-group required">
+                    <kendo-formfield>
+                         <kendo-label [for]="ConfirmPassword" text="Confirm Password"></kendo-label>
+                          <input formControlName="ConfirmPassword" kendoTextBox type='password' #ConfirmPassword required/>
+                          <kendo-formerror>Error: Confirm Password is required</kendo-formerror>
+                     </kendo-formfield>
+                </div>
+            </div>
+
+            
+
+            <kendo-formfield>
+                <kendo-label [for]="email" text="User Email"></kendo-label>
+                <input formControlName="UserEmail" kendoTextBox #email required/>
+                <kendo-formhint>Your active email</kendo-formhint>
+                <kendo-formerror>Error: Not valid email format</kendo-formerror>
+            </kendo-formfield>
+            
+            <kendo-formfield>
+                <kendo-label>Role:</kendo-label>
+                    <select  formControlName="IDR">  
+                                             <option value="0">--Select--</option>  
+                                             <option *ngFor="let role of roles" value = {{role.idr}}>  
+                                                {{role.roleName}}  
+                                                      
+                                             </option>  
+                      </select>  
+           </kendo-formfield>   
+          
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <button class="submit-btn btn btn-success" (click)="onSubmit()"> Register </button>
+          </div>
+        </fieldset>
+    </form>
+</div>
+
+

@@ -1,0 +1,44 @@
+.user:after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+.teamMate img {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+.mate-info {
+    display: inline-block;
+    vertical-align: top;
+}
+.panelbar-wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+    color : rgb(69, 188, 192);
+   
+}
+.panelbar-item {
+    background-color: #2eadad;
+}
+
+.body { 
+     background-image:url('/assets/MicrosoftTeams-image.png');
+     height: 150% !important;
+    
+    width: 100%;
+   
+}
+     
+
+
+

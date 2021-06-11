@@ -1,0 +1,65 @@
+<div class="modal-header">
+    <h4 class="modal-title">Upadte your profile</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+   
+      
+          <div class="form-group col">
+              <label for="UserName">Username</label>
+              <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+              <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                  <div *ngIf="f.userName.errors.required">Username is required</div>
+              </div>
+          </div>
+
+          <div class="form-group col">
+              <label for="passwordUser">
+                  Password
+              </label>
+              <input type="password" formControlName="passwordUser" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.passwordUser.errors }" />
+              <div *ngIf="submitted && f.passwordUser.errors" class="invalid-feedback">
+                  <div *ngIf="f.passwordUser.errors.required">Password is required</div>
+                  <div *ngIf="f.passwordUser.errors.minlength">Password must be at least 4 characters</div>
+              </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="userEmail">User Email</label>
+            <input type="text" formControlName="userEmail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userEmail.errors }" />
+            <div *ngIf="submitted && f.userEmail.errors" class="invalid-feedback">
+                <div *ngIf="f.userEmail.errors.required">User Email is required</div>
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="idr">User Role</label>
+            <br>
+            
+            <select formControlName="idr" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+              <option value="0">--Select--</option>  
+              <option *ngFor="let role of roles" value = {{role.idr}}>  
+                 {{role.roleName}}  
+                       
+              </option>  
+           </select>  
+            <div *ngIf="submitted && f.idr.errors" class="invalid-feedback">
+                <div *ngIf="f.idr.errors.required">User Role is required</div>
+            </div>
+          </div>
+      
+  </form>
+  
+    
+  </div>
+  <div class="modal-footer">
+    <button [disabled]="loading"  (click)="updateUser()" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+  </button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  </div>
