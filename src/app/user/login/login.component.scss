@@ -18,8 +18,10 @@
   margin: 20px 0;
 }
 .btn{
-    
-  display: inline-block;
+  float: right;
+  margin-left: auto;
+  margin-right: auto;
+  
   border-radius: 4px;
   background-color: #046c74;
   border: none;
@@ -53,7 +55,7 @@
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.btn:hover span:after {
   opacity: 1;
   right: 0;
 }

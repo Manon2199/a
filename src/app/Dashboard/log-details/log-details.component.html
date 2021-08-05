@@ -1,0 +1,86 @@
+<nav class="navbar navbar-dark bg-dark"  >
+  <a class="navbar-brand text-white" *ngIf="currentItem">Log Details of API {{currentItem}}</a>
+  <button class="btn btn-primary"  (click)="open()">Manage Statistics</button>
+</nav>
+
+
+
+<kendo-grid style="margin-top:25px;"
+      [data]="viewlog | async"
+      [height]="533"
+      [width]="500"
+      [pageSize]="gridState.take"
+      [skip]="gridState.skip"
+      [sort]="gridState.sort"
+      [pageable]="true"
+      [sortable]="true"
+      [resizable]="true"
+      (dataStateChange)="onStateChange($event)"
+      [navigable]="true"
+      [columnMenu]="{ filter: true }">
+    
+      <ng-template kendoGridToolbarTemplate>
+        <input
+        placeholder="Search in all columns..."
+        kendoTextBox
+        (input)="onFilter($event.target.value)"/>
+        <kendo-dropdownlist
+        [data]="dataLevel"
+        [value]="selectedLevel"
+        [defaultItem]="defaultItemLevel"
+        [textField]="'Level'"
+        [valueField]="'Level'"
+        (valueChange)="handleLevelChange($event)">
+        </kendo-dropdownlist>
+      </ng-template>
+      
+     
+     
+      <kendo-grid-column
+      
+        field="date"
+        title="Date"
+      ></kendo-grid-column>
+      <kendo-grid-column
+        field="thread"
+        title="Thread "
+      ></kendo-grid-column>
+      <kendo-grid-column
+        field="logger"
+        title="Logger"
+      ></kendo-grid-column>
+      <kendo-grid-column
+      field="system"
+      title="System"
+      ></kendo-grid-column>
+      <kendo-grid-column
+      field="message"
+      title="Message"
+      ></kendo-grid-column>
+      <kendo-grid-column
+      field="responseMessage"
+      title="Response Message"
+      ></kendo-grid-column>
+      <kendo-grid-column
+      field="exception"
+      title="Exception"
+      ></kendo-grid-column>
+      <kendo-grid-column
+      field="lookupId"
+      title="LookupId"
+      ></kendo-grid-column>
+      <kendo-grid-column
+      field="executionTime"
+      title="ExecutionTime"
+      ></kendo-grid-column>
+</kendo-grid>
+
+   
+
+
+
+
+   
+
+
+

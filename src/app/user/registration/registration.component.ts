@@ -44,12 +44,14 @@ export class RegistrationComponent implements OnInit {
       (res: any) => {
         if (res.succeeded) {
           this.service.registerForm.reset();
-          this.alertService.success('New user created!', 'Registration successful.');
+          this.toastr.success('Account created');
+          this.alertService.success('Account created!', 'Registration successful.');
         } else {
           res.errors.forEach(element => {
             switch (element.code) {
               case 'DuplicateUserName':
-                this.toastr.error('Username is already taken','Registration failed.');
+                this.alertService.alert;
+                this.toastr.error('Username is already token','Registration failed.');
                 break;
 
               default:

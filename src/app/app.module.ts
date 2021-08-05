@@ -46,6 +46,11 @@ import{EditApiService} from'./edit-api.service';
 import { EditProfileComponent } from './Dashboard/edit-profile/edit-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WelcomelogoComponent } from './welcomelogo/welcomelogo.component';
+import { LogDetailsComponent } from './Dashboard/log-details/log-details.component';
+import { StatisticsComponent } from './Dashboard/statistics/statistics.component';
+import { LogDetailsService } from './log-details.service';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import { IgxCsvExporterService } from 'igniteui-angular';
 
 
 
@@ -80,6 +85,8 @@ import { WelcomelogoComponent } from './welcomelogo/welcomelogo.component';
     ListOfUsersComponent,
          EditProfileComponent,
          WelcomelogoComponent,
+         LogDetailsComponent,
+         StatisticsComponent,
     
    
     
@@ -112,7 +119,14 @@ import { WelcomelogoComponent } from './welcomelogo/welcomelogo.component';
     MatDialogModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    NgbModule
+    NgbModule,
+    ChartsModule
+   
+   
+   
+    
+    
+   
    
     
     
@@ -139,7 +153,10 @@ import { WelcomelogoComponent } from './welcomelogo/welcomelogo.component';
     {
       deps: [HttpClient],
       provide : EditApiService
-    }
+    },{
+      deps: [HttpClient],
+      provide : LogDetailsService
+    }, IgxCsvExporterService
     ],
     
     

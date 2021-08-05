@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Apis } from './apis';
+import { Loglevel } from './loglevel';
 
 const CREATE_ACTION = "create";
 const UPDATE_ACTION = "update";
@@ -15,8 +16,9 @@ export class EditApiService extends BehaviorSubject<any[]> {
     super([]);
    
   }
-  readonly BaseURI = 'https://localhost:44348';
+  readonly BaseURI = 'https://localhost:44321';
   private data: any[] = [];
+  private datalog: any[]=[];
   action : string = '';
 
   public read() {
@@ -35,14 +37,18 @@ export class EditApiService extends BehaviorSubject<any[]> {
       });
       
   }
+  
+  
 
 public addApi(api) {
-     return this.http.post(this.BaseURI + '/api/API/AddAPI', api ); 
+  console.log("addedAPI:",api)
+     return this.http.post(this.BaseURI + '/api/API/AddAPI',api ); 
 }
 
 
 public editApi(idapi, api){
-  
+  console.log('idservice',idapi)
+  console.log('apiservice',api)
   return this.http.post(this.BaseURI + '/api/API/EditAPI/'+idapi,api);
 }
 public deleteApi(Idapi){

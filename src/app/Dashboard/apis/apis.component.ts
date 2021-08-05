@@ -2,14 +2,18 @@ import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 import { Inject, ViewEncapsulation } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { process, State } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { map } from 'rxjs/operators';
 import { Apis } from 'src/app/apis';
 import { EditApiService } from 'src/app/edit-api.service';
 import { User } from 'src/app/user';
 import { Users } from 'src/app/users';
+import { LogDetailsComponent } from '../log-details/log-details.component';
 
 
 
@@ -32,41 +36,56 @@ export class APIsComponent implements OnInit {
   public role = localStorage.getItem('userRole');
   public currentId = localStorage.getItem('userId');
   public currentIDAPI = localStorage.getItem('idapi');
+  public opened = false;
+ 
+  public currentItem;
+  
   
   
   
   
 
-  constructor(@Inject(EditApiService) editApiService) 
+  constructor(@Inject(EditApiService) editApiService,private modalService: NgbModal,private router: Router) 
   { this.editApiService = editApiService;}
 
   public ngOnInit(): void {
     this.view = this.editApiService.pipe(
       map((data) => process(data, this.gridState ))       
     );
-
     this.editApiService.read();
     
-    
 
-  }
+    }
+    public onStateChange(state: State) {
+      this.gridState = state;
+  
+      this.editApiService.read();
+     }
+    
  
-   public bool (idapi){ 
-     this.editApiService.checkApi(idapi,this.currentId);
-     console.log('bool',idapi)
+   public bool (item){ 
+  console.log('bool',item.idapi)
+   return this.editApiService.checkApi(item.idapi,this.currentId);
+     
+     
     }
    
-   
-  
 
-  public onStateChange(state: State) {
-    this.gridState = state;
+  public showDetails(item) {
+    this.currentItem = item;
+    console.log('**',this.currentItem);
+    localStorage.setItem('idapichoosed1', JSON.stringify(this.currentItem.idapi));
+    this.router.navigate(['/Dashboard/log-details']); 
+    }
 
-    this.editApiService.read();
+  
+ 
+
+  
    
-  
-  }
-  
+   
+
+ 
     
     
 
@@ -113,6 +132,7 @@ export class APIsComponent implements OnInit {
     const api: Apis = formGroup.value;
     this.editApiService.save(api, isNew);
     console.log('api',api)
+    console.log("isNew:",isNew)
     sender.closeRow(rowIndex);
   }
 

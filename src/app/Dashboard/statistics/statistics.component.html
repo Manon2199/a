@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark bg-dark"  >
+  <a class="navbar-brand text-white"*ngIf="idApi" > Levels' Statistics of API {{idApi}}</a>
+</nav>
+
+<kendo-chart title="The occurence Levels">
+  <kendo-chart-legend position="bottom"></kendo-chart-legend>
+  <kendo-chart-series>
+    <kendo-chart-series-item 
+        type="pie"
+        [data]="pieData"
+        field="value"
+        categoryField="level"
+        [labels]="{ visible: true, content: labelContent }">
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>
+<button (click)="generatePdf()">Download PDF</button>
+<button (click)="exportCsvButtonHandler()">Export Data to CSV</button>
+

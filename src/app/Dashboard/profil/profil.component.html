@@ -1,8 +1,16 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark" style="margin-top:0;">
     <a class="navbar-brand text-white">User Profile</a>
     <a class="navbar-brand text-white" *ngIf="userDetails">Welcome {{userDetails.userName}}</a>
     
-    
+    <form _ngcontent-jcs-c3="" class="navbar-form">
+      <div _ngcontent-jcs-c3="" class="input-group no-border">
+        <input _ngcontent-jcs-c3="" class="form-control" placeholder="Search..." type="text" value="">
+        <button _ngcontent-jcs-c3="" class="btn btn-white btn-round btn-just-icon" mat-raised-button="" type="submit">
+          <i _ngcontent-jcs-c3="" class="material-icons" style="color: white;">search</i>
+          <div _ngcontent-jcs-c3="" class="ripple-container"></div>
+        </button>
+      </div>
+    </form>
     <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
 </nav>
 <ul></ul>
@@ -10,25 +18,45 @@
 <br>
 <br>
 
-<div class="card text-dark bg-light mb-3" style="max-width: 18rem;"*ngIf="userDetails">
-  <div class="card-body">
-    
-    <ul class="list-group">
-      <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
+<div class="main-content">
+  <div class="container-fluid">
       
-      <li class="list-group-item"><strong>UserEmail : </strong>{{userDetails.userEmail}}</li>
-
+          
+            <div _ngcontent-urw-c8="" class="col-md-8">
+              <div _ngcontent-urw-c8="" class="card card-profile">
+                <div _ngcontent-urw-c8="" class="card-avatar">
+                  <a _ngcontent-urw-c8="" href="javascript:void(0)">
+                    <img _ngcontent-urw-c8="" class="img" src="./assets/0680918650c957bd5fac4a8617c27f75.jpg" 
+                    style="size: 130px;">
+                  </a>
+                </div>
+                <div _ngcontent-urw-c8="" class="card-body" *ngIf="userDetails">
+                    <h6 _ngcontent-urw-c8="" class="card-category text-gray">{{userDetails.idr}}</h6>
+                    <h4 _ngcontent-urw-c8="" class="card-title">{{userDetails.userName}}</h4>
+                    <p _ngcontent-urw-c8="" class="card-description">
+                      <ul class="list-group">
+                        <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
       
-      <li class="list-group-item"><strong>Role : </strong>{{userDetails.idr}}</li>
-    </ul>
-    </div>
-    
+                        <li class="list-group-item"><strong>UserEmail : </strong>{{userDetails.userEmail}}</li>
+                  
+                        
+                        <li class="list-group-item"><strong>Role : </strong>{{userDetails.idr}}</li>
+                      </ul>
+                    
+                  </div>
+                </div>
+            </div>
+     
   </div>
+</div>
 
- 
-
-  <main class="content-wrapper col">
-    <alert></alert>
-    
-</main>
-  
+                  
+                  
+                   
+                  
+                    <main class="content-wrapper col">
+                      <alert></alert>
+                    </main>
+                    
+                  
+      

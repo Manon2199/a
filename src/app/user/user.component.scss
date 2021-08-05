@@ -32,13 +32,33 @@
 }
 
 .body { 
-     background-image:url('/assets/MicrosoftTeams-image.png');
-     height: 150% !important;
-    
+    height: 100% !important;
     width: 100%;
+    background-color: rgb(176, 218, 221);
+    background-position: cover;
+    
+    
    
 }
-     
+
+.content-wrapper{
+    margin-top:100px;
+    width: 50%;
+    height: 50%;
+    margin-right : auto;
+    margin-left : auto;
+   
+}
+
+
+.containerr{
+   margin-left: auto;
+   margin-right: auto;
+   
+   
+   display : block !important;
+    
+}
 
 
 

@@ -1,9 +1,9 @@
+<div class="col-md-8">
+       
+</div>
+
 <div class="Register-wrap">
-    <div class="row">
-        <div class="col-md-8">
-           <button type="button" class="btn btn-outline-info btn-round " [routerLink]=" ['/user/login'] "routerLinkActive="active">Login</button>
-        </div>
-    </div>
+    
     <form class="k-form" [formGroup]="service.registerForm">
         <fieldset class="k-form-fieldset">
             <legend class="k-form-legend">User Details</legend>
@@ -51,7 +51,11 @@
            </kendo-formfield>   
           
           <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="row">
             <button class="submit-btn btn btn-success" (click)="onSubmit()"> Register </button>
+            <button type="button" class="btn  btn-outline-info btn-round " [routerLink]=" ['/user/login'] "routerLinkActive="active"
+       style="vertical-align:middle">Login</button>
+       </div>
           </div>
         </fieldset>
     </form>

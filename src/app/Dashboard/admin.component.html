@@ -1,3 +1,9 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="runtime.1edc07e75623c28d9da5.js"></script>
+<script src="polyfills-es5.9f5ea7fc2fff869f9521.js" nomodule=""></script>
+<script src="polyfills.643d3ff49b919651c000.js"></script>
+<script src="scripts.c709dc668ed97bc4e681.js"></script>
+<script src="main.e05c4496fa187a390768.js"></script>
 <div class="row">
     <div id="top-bar" class="top-bar sticky-top bg-white d-xl-none k-shadow">
         <span id="nav-toggle" class="nav-toggle d-xl-none"
@@ -9,22 +15,58 @@
         class="sticky-top py-3 py-sm-5 k-vbox shadow col-xl-2 d-xl-flex hide"
         [@toggleNav]="navState"
         *ngIf="showNav()">
-        <p class="kendo-grid-column">
-             <img src="/assets/CED_PMV_FC_v3.jpg" [ngStyle]="{'max-width': '80%'}" class="mx-auto d-block"  >
-             
-             
-                 <button kendoButton [toggleable]="true" id="profil" [routerLink]=" ['./profil'] " class="nav-link" routerLinkActive="active">User Profile</button>
-                 <button kendoButton [toggleable]="true" id="list-of-users" [routerLink]=" ['./list-of-users'] " class="nav-link" routerLinkActive="active"> List of Users</button>
-                 <button kendoButton [toggleable]="true" id="apis" [routerLink]=" ['./apis'] " class="nav-link" routerLinkActive="active">List of APIs</button>
-                 <button kendoButton [toggleable]="true" id="bm" [routerLink]=" ['./bm'] " class="nav-link" routerLinkActive="active">Mails' Box</button>
-                 
-                
-       </p>
-          
+       
+       <div _ngcontent-qri-c1="" class="sidebar" data-background-color="white" data-color="danger" data-image="./assets/stat.jpg">
+        <app-sidebar _ngcontent-qri-c1="" _nghost-qri-c2="">
+            <div _ngcontent-qri-c2="" class="logo-img">
+                    <img _ngcontent-qri-c2="" src="/assets/CED_PMV_FC_v3.jpg"  [ngStyle]="{'max-width': '80%'}" class="mx-auto d-block">
+            </div> 
+        
+        <div _ngcontent-qri-c2="" class="sidebar-wrapper ps">
+                    <ul _ngcontent-qri-c2="" class="nav">
+                        <li _ngcontent-qri-c2="" routerlinkactive="active" class="nav-item ">
+                            <a _ngcontent-qri-c2="" class="nav-link" href="./Dashboard/profil">
+                                <i _ngcontent-qri-c2="" class="material-icons">perm_identity</i>
+                                <p _ngcontent-qri-c2="">User Profile</p>
+                            </a>
+                        </li>
+                        <li _ngcontent-qri-c2="" routerlinkactive="active" class=" nav-item">
+                                    <a _ngcontent-qri-c2="" class="nav-link" href="./Dashboard/list-of-users">
+                                        <i _ngcontent-qri-c2="" class="material-icons">people</i>
+                                        <p _ngcontent-qri-c2="">List of Users</p>
+                                    </a>
+                                </li>
+                        <li _ngcontent-qri-c2="" routerlinkactive="active" class=" nav-item">
+                                        <a _ngcontent-qri-c2="" class="nav-link" href="/Dashboard/apis">
+                                            <i _ngcontent-qri-c2="" class="material-icons">grid_view</i>
+                                            <p _ngcontent-qri-c2="">List of APIs</p>
+                                        </a>
+                        </li>
+                        <li _ngcontent-qri-c2="" routerlinkactive="active" class=" nav-item">
+                                        <a _ngcontent-qri-c2="" class="nav-link" href="./Dashboard/bm">
+                                            <i _ngcontent-qri-c2="" class="material-icons">email</i>
+                                            <p _ngcontent-qri-c2="">Mails' Box</p>
+                                        </a>
+                        </li>
+                        <li _ngcontent-qri-c2="" routerlinkactive="active" class=" nav-item">
+                            <a _ngcontent-qri-c2="" class="nav-link" href="./Dashboard/statistics">
+                                <i _ngcontent-qri-c2="" class="material-icons">bar_chart</i>
+                                <p _ngcontent-qri-c2="">Statistics</p>
+                            </a>
+            </li>
+                    </ul>
+                    
     </div>
-    
-    <main class="content-wrapper col">
-        <alert></alert>
-        <router-outlet></router-outlet>
-    </main>
+    <div _ngcontent-jcs-c1="" class="sidebar-background" 
+    style="background-image: url(./assets/0680918650c957bd5fac4a8617c27f75.jpg)">
 </div>
+</app-sidebar>
+</div>
+</div>
+
+<main class="content-wrapper col">
+    <alert></alert>
+    <router-outlet></router-outlet>       
+</main>
+</div>
+

@@ -15,6 +15,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { ListOfUsersComponent } from './Dashboard/list-of-users/list-of-users.component';
 import { EditProfileComponent } from './Dashboard/edit-profile/edit-profile.component';
 import { WelcomelogoComponent } from './welcomelogo/welcomelogo.component';
+import { LogDetailsComponent } from './Dashboard/log-details/log-details.component';
+import { StatisticsComponent } from './Dashboard/statistics/statistics.component';
 
 
 
@@ -39,6 +41,8 @@ import { WelcomelogoComponent } from './welcomelogo/welcomelogo.component';
       { path: 'profil', component: ProfilComponent},
    
       { path: 'apis', component: APIsComponent },
+      { path: 'log-details', component: LogDetailsComponent },
+      {path : 'statistics', component:  StatisticsComponent},
       { path: 'bm', component: BMComponent },
       { path: 'allusers', component: AllusersComponent,
        children:[
